@@ -11,7 +11,7 @@ URL:		http://www.insidesystems.net/projects/project.php?projectid=4
 Requires:	php
 Requires:	php-pcre
 Requires:	php-imap
-Requires:	php-domxml
+Requires:	php4-domxml
 Requires:	webserver
 Provides:	webmail
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
