@@ -1,12 +1,12 @@
 Summary:	Inside Systems webmail package
 Summary(pl):	Webmail firmy Inside Systems
 Name:		ISMail
-Version:	1.7.1
+Version:	1.7.2
 Release:	0.1
 License:	GPL
 Group:		Applications/Mail
 Source0:	ftp://ftp.verbotenplanet.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	3eb24555525da214e70b81292956867f
+# Source0-md5:	ff3f8b93241360e718ab88329d3d10c7
 URL:		http://www.insidesystems.net/projects/project.php?projectid=4
 Requires:	php
 Requires:	php-pcre
