@@ -1,4 +1,5 @@
 Summary:	Inside Systems webmail package
+Summary(pl):	Webmail firmy Inside Systems
 Name:		ISMail
 Version:	1.7.1
 Release:	0.1
@@ -7,11 +8,11 @@ Group:		Applications/Mail
 Source0:	ftp://ftp.verbotenplanet.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	3eb24555525da214e70b81292956867f
 URL:		http://www.insidesystems.net/projects/project.php?projectid=4
-Requires:	webserver
 Requires:	php
 Requires:	php-pcre
 Requires:	php-imap
 Requires:	php-domxml
+Requires:	webserver
 Provides:	webmail
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Prefix:		/home/services/httpd/html
@@ -21,10 +22,12 @@ Prefix:		/home/services/httpd/html
 %description
 This package contains ISMail, a webmail system for modern browsers.
 
+%description -l pl
+Ten pakiet zawiera ISMaila - sytem webmailowy dla nowoczesnych
+przegl±darek.
+
 %prep
 %setup -q -n %{name}
-
-%build
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -44,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_ismaildir}
 %dir %{_ismaildir}/include
-%config %{_ismaildir}/include/*.conf
+%config(noreplace) %verify(not size mtime md5) %{_ismaildir}/include/*.conf
 %{_ismaildir}/include/*.php
 %{_ismaildir}/include/*.class
 %{_ismaildir}/include/*.xml
