@@ -23,7 +23,7 @@ Prefix:		/home/services/httpd/html
 This package contains ISMail, a webmail system for modern browsers.
 
 %description -l pl
-Ten pakiet zawiera ISMaila - sytem webmailowy dla nowoczesnych
+Ten pakiet zawiera ISMaila - system webmailowy dla nowoczesnych
 przegl±darek.
 
 %prep
