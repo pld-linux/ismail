@@ -5,7 +5,7 @@ Version:	1.7.3
 Release:	0.2
 License:	GPL
 Group:		Applications/Mail
-Source0:	ftp://ftp.verbotenplanet.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.verbotenplanet.net/ISMail/%{name}-%{version}.tar.bz2
 # Source0-md5:	482c9c3eda83714187c3b2c52a0c4f9d
 Source1:	%{name}.conf
 URL:		http://www.insidesystems.net/projects/project.php?projectid=4
@@ -16,7 +16,6 @@ Requires:	php4-domxml
 Requires:	webserver
 Provides:	webmail
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Prefix:		/home/services/httpd/html
 
 %define		_ismaildir	%{_datadir}/%{name}
 %define 	_sysconfdir     /etc/%{name}
@@ -55,10 +54,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc BSD  CHANGELOG  CREDITS  docs.html  examples
 %dir %{_sysconfdir}
+%{_sysconfdir}/*.conf
 %dir %{_ismaildir}
 %dir %{_ismaildir}/include
-%config(noreplace) %verify(not size mtime md5) %{_ismaildir}/include/*.conf
-%{_sysconfdir}/*.conf
+%config(noreplace) %verify(not md5 mtime size) %{_ismaildir}/include/*.conf
 %{_ismaildir}/include/*.php
 %{_ismaildir}/include/*.class
 %{_ismaildir}/include/*.xml
@@ -67,6 +66,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_ismaildir}/locale
 %{_ismaildir}/graphics
 %attr(730,root,http) %dir %{_ismaildir}/users
-%defattr(640,http,http,750)
-%dir /etc/httpd
-/etc/httpd/%{name}.conf
+%attr(750,http,http) %dir /etc/httpd
+%attr(640,http,http) /etc/httpd/%{name}.conf
