@@ -52,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc BSD  CHANGELOG  CREDITS  docs.html  examples
+%doc BSD CHANGELOG CREDITS docs.html examples
 %dir %{_sysconfdir}
 %{_sysconfdir}/*.conf
 %dir %{_ismaildir}
@@ -66,4 +66,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_ismaildir}/locale
 %{_ismaildir}/graphics
 %attr(730,root,http) %dir %{_ismaildir}/users
-%attr(640,http,http) /etc/httpd/%{name}.conf
+%attr(640,root,root) /etc/httpd/%{name}.conf
