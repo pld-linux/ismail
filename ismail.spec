@@ -66,5 +66,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_ismaildir}/locale
 %{_ismaildir}/graphics
 %attr(730,root,http) %dir %{_ismaildir}/users
-%attr(750,http,http) %dir /etc/httpd
 %attr(640,http,http) /etc/httpd/%{name}.conf
