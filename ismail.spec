@@ -5,7 +5,7 @@ Version:	1.7.3
 Release:	0.2
 License:	GPL
 Group:		Applications/Mail
-Source0:	ftp://ftp.verbotenplanet.net/ISMail/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.insidesystems.net/ismail/%{name}-%{version}.tar.bz2
 # Source0-md5:	482c9c3eda83714187c3b2c52a0c4f9d
 Source1:	%{name}.conf
 URL:		http://www.insidesystems.net/projects/project.php?projectid=4
