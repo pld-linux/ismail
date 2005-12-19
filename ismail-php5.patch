@@ -1,0 +1,9 @@
+--- ismail/ismail/include/datastores/xml.php.orig	2005-12-19 18:51:53.727262800 +0000
++++ ismail/ismail/include/datastores/xml.php	2005-12-19 18:53:36.725604672 +0000
+@@ -1,4 +1,6 @@
+ <?PHP
++if (version_compare(PHP_VERSION,'5','>='))
++	 require_once('include/datastores/domxml4-to5-fixup.php');
+ // A few permissions need to be correct. The 'users' directory must be readable and
+ // writable by the user/group of the web server process in order for addressbooks/identities/settings to work properly.
+ class	AddressBook {
