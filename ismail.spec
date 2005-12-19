@@ -1,12 +1,12 @@
 Summary:	Inside Systems webmail package
 Summary(pl):	Webmail firmy Inside Systems
-Name:		ISMail
-Version:	1.7.3
-Release:	0.2
+Name:		ismail
+Version:	2.0
+Release:	0.1
 License:	GPL
 Group:		Applications/Mail
 Source0:	ftp://ftp.insidesystems.net/ismail/%{name}-%{version}.tar.bz2
-# Source0-md5:	482c9c3eda83714187c3b2c52a0c4f9d
+# Source0-md5:	df7b88426f24250cd7ffee6f29d330b2
 Source1:	%{name}.conf
 URL:		http://www.insidesystems.net/projects/project.php?projectid=4
 Requires:	php
@@ -35,12 +35,12 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_ismaildir} \
 	    $RPM_BUILD_ROOT{%{_sysconfdir},/etc/httpd}
-mv ISMail/include/ismail.conf.sample ISMail/include/ismail.conf
-mv ISMail/include/istheme.conf.sample ISMail/include/istheme.conf
+mv ismail/include/ismail.conf.sample ismail/include/ismail.conf
+mv ismail/include/istheme.conf.sample ismail/include/istheme.conf
 
-cp -av ISMail/* $RPM_BUILD_ROOT%{_ismaildir}
+cp -av ismail/* $RPM_BUILD_ROOT%{_ismaildir}
 
-cp ISMail/include/*.conf $RPM_BUILD_ROOT%{_sysconfdir}
+cp ismail/include/*.conf $RPM_BUILD_ROOT%{_sysconfdir}
 
 ln -sf %{_sysconfdir}/ismail.conf               $RPM_BUILD_ROOT%{_ismaildir}/include/ismail.conf
 ln -sf %{_sysconfdir}/istheme.conf               $RPM_BUILD_ROOT%{_ismaildir}/include/istheme.conf
@@ -59,11 +59,14 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_ismaildir}/include
 %config(noreplace) %verify(not md5 mtime size) %{_ismaildir}/include/*.conf
 %{_ismaildir}/include/*.php
-%{_ismaildir}/include/*.class
+#%{_ismaildir}/include/*.class
 %{_ismaildir}/include/*.xml
+%dir %{_ismaildir}/include/datastores
+%{_ismaildir}/include/datastores/*.php*
 %{_ismaildir}/*.php
 %{_ismaildir}/xtree
 %{_ismaildir}/locale
-%{_ismaildir}/graphics
-%attr(730,root,http) %dir %{_ismaildir}/users
+%{_ismaildir}/themes
+#%{_ismaildir}/graphics
+#%attr(730,root,http) %dir %{_ismaildir}/users
 %attr(640,root,root) /etc/httpd/%{name}.conf
