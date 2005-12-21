@@ -2,17 +2,21 @@ Summary:	Inside Systems webmail package
 Summary(pl):	Webmail firmy Inside Systems
 Name:		ismail
 Version:	2.0
-Release:	0.1
+Release:	0.5
 License:	GPL
 Group:		Applications/Mail
 Source0:	ftp://ftp.insidesystems.net/ismail/%{name}-%{version}.tar.bz2
 # Source0-md5:	df7b88426f24250cd7ffee6f29d330b2
 Source1:	%{name}.conf
+# from http://alexandre.alapetite.net/doc-alex/domxml-php4-php5/index.en.html
+Source2:	%{name}-domxml4-to5-fixup.php
+Patch0:		%{name}-php5.patch
 URL:		http://www.insidesystems.net/projects/project.php?projectid=4
 Requires:	php
 Requires:	php-pcre
 Requires:	php-imap
-Requires:	php4-domxml
+Requires:	php-domxml
+Requires:	php-xml
 Requires:	webserver
 Provides:	webmail
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,6 +33,7 @@ przegl±darek.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -46,6 +51,7 @@ ln -sf %{_sysconfdir}/ismail.conf               $RPM_BUILD_ROOT%{_ismaildir}/inc
 ln -sf %{_sysconfdir}/istheme.conf               $RPM_BUILD_ROOT%{_ismaildir}/include/istheme.conf
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/httpd/%{name}.conf
+install %{SOURCE2} $RPM_BUILD_ROOT%{_ismaildir}/include/datastores/domxml4-to5-fixup.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
