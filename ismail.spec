@@ -12,15 +12,15 @@ Source1:	%{name}-apache.conf
 Source2:	%{name}-domxml4-to5-fixup.php
 Patch0:		%{name}-php5.patch
 URL:		http://www.insidesystems.net/projects/project.php?projectid=4
+BuildRequires:  rpmbuild(macros) >= 1.264
 Requires:	php
-Requires:	php-pcre
-Requires:	php-imap
 Requires:	php-domxml
+Requires:	php-imap
+Requires:	php-pcre
 Requires:	php-xml
 Requires:       webapps
 Requires:	webserver
 Provides:	webmail
-BuildRequires:  rpmbuild(macros) >= 1.264
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,12 +53,15 @@ cp -av ismail/* $RPM_BUILD_ROOT%{_ismaildir}
 
 cp ismail/include/*.conf $RPM_BUILD_ROOT%{_sysconfdir}
 
-ln -sf %{_sysconfdir}/ismail.conf               $RPM_BUILD_ROOT%{_ismaildir}/include/ismail.conf
-ln -sf %{_sysconfdir}/istheme.conf               $RPM_BUILD_ROOT%{_ismaildir}/include/istheme.conf
+ln -sf %{_sysconfdir}/ismail.conf $RPM_BUILD_ROOT%{_ismaildir}/include/ismail.conf
+ln -sf %{_sysconfdir}/istheme.conf $RPM_BUILD_ROOT%{_ismaildir}/include/istheme.conf
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_webappsdir}/apache.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_webappsdir}/httpd.conf
 install %{SOURCE2} $RPM_BUILD_ROOT%{_ismaildir}/include/datastores/domxml4-to5-fixup.php
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %triggerin -- apache1
 %webapp_register apache %{_webapp}
@@ -71,9 +74,6 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_ismaildir}/include/datastores/domxml4-to5-f
 
 %triggerun -- apache >= 2.0.0
 %webapp_unregister httpd %{_webapp}
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
