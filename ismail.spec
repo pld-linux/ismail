@@ -12,22 +12,22 @@ Source1:	%{name}-apache.conf
 Source2:	%{name}-domxml4-to5-fixup.php
 Patch0:		%{name}-php5.patch
 URL:		http://www.insidesystems.net/projects/project.php?projectid=4
-BuildRequires:  rpmbuild(macros) >= 1.264
+BuildRequires:	rpmbuild(macros) >= 1.264
 Requires:	php
 Requires:	php-domxml
 Requires:	php-imap
 Requires:	php-pcre
 Requires:	php-xml
-Requires:       webapps
+Requires:	webapps
 Requires:	webserver
 Provides:	webmail
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_ismaildir	%{_datadir}/%{name}
-%define 	_sysconfdir     /etc/%{name}
-%define         _webapps        /etc/webapps
-%define         _webapp         %{name}
+%define 	_sysconfdir	/etc/%{name}
+%define		_webapps	/etc/webapps
+%define		_webapp		%{name}
 %define		_webappsdir	%{_webapps}/%{name}
 
 %description
