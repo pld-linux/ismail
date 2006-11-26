@@ -2,7 +2,7 @@ Summary:	Inside Systems webmail package
 Summary(pl):	Webmail firmy Inside Systems
 Name:		ismail
 Version:	2.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Mail
 Source0:	ftp://ftp.insidesystems.net/ismail/%{name}-%{version}.tar.bz2
@@ -13,13 +13,13 @@ Source2:	%{name}-domxml4-to5-fixup.php
 Patch0:		%{name}-php5.patch
 URL:		http://www.insidesystems.net/projects/project.php?projectid=4
 BuildRequires:	rpmbuild(macros) >= 1.264
-Requires:	php
-Requires:	php-domxml
-Requires:	php-imap
-Requires:	php-pcre
-Requires:	php-xml
+Requires:	php(domxml)
+Requires:	php(imap)
+Requires:	php(pcre)
+Requires:	php(xml)
 Requires:	webapps
 Requires:	webserver
+Requires:	webserver(php)
 Provides:	webmail
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
