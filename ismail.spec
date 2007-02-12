@@ -1,5 +1,5 @@
 Summary:	Inside Systems webmail package
-Summary(pl):	Webmail firmy Inside Systems
+Summary(pl.UTF-8):   Webmail firmy Inside Systems
 Name:		ismail
 Version:	2.0
 Release:	2
@@ -33,9 +33,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 This package contains ISMail, a webmail system for modern browsers.
 
-%description -l pl
+%description -l pl.UTF-8
 Ten pakiet zawiera ISMaila - system webmailowy dla nowoczesnych
-przegl±darek.
+przeglÄ…darek.
 
 %prep
 %setup -q -n %{name}
