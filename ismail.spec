@@ -1,5 +1,5 @@
 Summary:	Inside Systems webmail package
-Summary(pl.UTF-8):   Webmail firmy Inside Systems
+Summary(pl.UTF-8):	Webmail firmy Inside Systems
 Name:		ismail
 Version:	2.0
 Release:	2
